@@ -57,7 +57,8 @@ async def news(update: Update, context: ContextTypes.DEFAULT_TYPE):
     soup = BeautifulSoup(response.content,'html.parser')
     contents = soup.find_all('a',attrs={'d-block fw-medium color-main hover-color-24h'})
     for content in contents:
-        await  update.message.reply_text(f'{content.get('href')}')
+        c = content.get('href')
+        await  update.message.reply_text(f'{c}')
 def build_keyboard(current_list: List[int]) -> InlineKeyboardMarkup:
     """Helper function to build the next inline keyboard."""
     return InlineKeyboardMarkup.from_column(
