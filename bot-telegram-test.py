@@ -30,9 +30,15 @@ TOKEN = "7154613340:AAFYxrccdibqF2JSkaymLfOZ4Vm2DFMJHuI"
 
 caption = ''
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    f = open("list-chat-id.txt", "a")
-    f.writelines(f'{str(update.effective_chat["id"])}\n')
-    f.close()
+    check = False
+    read_file = open("list-chat-id.txt", "r")
+    list_id = read_file.read().split('\n')
+    if(str(update.effective_chat["id"]) in list_id):
+        check = True
+    if(not check):
+        f = open("list-chat-id.txt", "a")
+        f.writelines(f'{str(update.effective_chat["id"])}\n')
+        f.close()
     number_list: List[int] = []
     await update.message.reply_text(f'Start {update.update_id}', reply_markup=build_keyboard(number_list))
 async def hello(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
