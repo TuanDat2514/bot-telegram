@@ -27,7 +27,7 @@ from telegram.ext import (
     
 )
 
-TOKEN = os.environ['TOKEN']
+TOKEN = os.getenv['TOKEN']
 
 caption = ''
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
