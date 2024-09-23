@@ -18,6 +18,8 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
+      - name: Setup Selenium
+        run: pip install selenium
       - name: Setup Telegram
         run: pip install python-telegram-bot
       # Runs a single command using the runners shell
