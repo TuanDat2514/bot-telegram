@@ -28,7 +28,7 @@ from telegram.ext import (
 )
 
 TOKEN = os.environ.get("TOKEN")
-
+message = "Complete the following tasks and contact @Serve18jl2 customer service to apply for free ₱22.\n"+ "①. Register: https://18jlvip.com\n"+"②. Join the official Telegram channel: \n"+"https://t.me/+gCnLv8l8ZeIxMzFl\n"+"Follow the official Facebook:\n"+ "https://facebook.com/18jlcomOfficial\n"+"③. Get free ₱22: @Serve18jl2"
 caption = ''
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     check = False
@@ -40,8 +40,8 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         f = open("list-chat-id.txt", "a")
         f.writelines(f'{str(update.effective_chat["id"])}\n')
         f.close()
-    number_list: List[int] = []
-    await update.message.reply_text(f'Start {update.update_id}', reply_markup=build_keyboard(number_list))
+    photo = PhotoSize(file_id='AgACAgUAAxkBAAMJZvoR3amlFIfAXmpy8S7BhmiDt_kAAizDMRtnG9FX-k_l2vWjrmIBAAMCAAN4AAM2BA', file_size=84657, file_unique_id='AQADLMMxG2cb0Vd9', height=360, width=640)
+    await update.message.reply_photo(photo=photo,caption=message)
 async def hello(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     chat_id = update.effective_chat["id"]
 
@@ -91,9 +91,9 @@ def get_photo(photo_size) -> PhotoSize:
 async def value_input(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     photo1 = update.message.photo
     context.user_data[0] = update.message.photo
-    context.user_data[1] = update.message.caption
+    context.user_data[1] = update.message.caption_html
     caption = update.message.caption
-    await update.message.reply_text(f'Value Input : {value_input} {caption}') 
+    await update.message.reply_text(f'Value Input : {update.message.} {caption}') 
 async def setCaption(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_text(f'setCaption') 
 async def send_Ads(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -103,7 +103,7 @@ async def send_Ads(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     list_id = file.read().split('\n')
     for id in list_id:
         if id != '':
-            await context.bot.send_photo(chat_id=id,caption=caption,photo=photo)
+            await context.bot.send_photo(chat_id=id,caption=caption,photo=photo,parse_mode='HTML')
         """ url = f'https://api.telegram.org/bot{TOKEN}/sendPhoto?chat_id={id}&caption={caption}&photo=https://yt3.googleusercontent.com/rwlnBmxBIHnAIz261w3REJSt0PQ7I5p7Fe8xmRyAUBBM2rdCHfET_7GX1qG9x4HUzQet3nKc=s160-c-k-c0x00ffffff-no-rj'
         requests.get(url) """
     """ await update.message.reply_photo(photo='https://yt3.googleusercontent.com/rwlnBmxBIHnAIz261w3REJSt0PQ7I5p7Fe8xmRyAUBBM2rdCHfET_7GX1qG9x4HUzQet3nKc=s160-c-k-c0x00ffffff-no-rj',
