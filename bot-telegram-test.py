@@ -142,7 +142,7 @@ async def crypto(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         print(f'{arr[i][0]}\t | {arr[i][1]} \n')
     message = f'----------Crypto----------\n'+ abc
     await update.effective_message.reply_text(message,parse_mode='HTML')
-app = ApplicationBuilder().token("7154613340:AAFYxrccdibqF2JSkaymLfOZ4Vm2DFMJHuI").build()
+app = ApplicationBuilder().token(TOKEN).build()
 app.add_handler(CommandHandler("start", start))
 app.add_handler(CommandHandler("hello", hello))
 app.add_handler(CommandHandler("news", news))
