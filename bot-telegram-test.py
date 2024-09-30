@@ -42,6 +42,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         f.close()
     photo = PhotoSize(file_id='AgACAgUAAxkBAAMJZvoR3amlFIfAXmpy8S7BhmiDt_kAAizDMRtnG9FX-k_l2vWjrmIBAAMCAAN4AAM2BA', file_size=84657, file_unique_id='AQADLMMxG2cb0Vd9', height=360, width=640)
     await update.message.reply_photo(photo=photo,caption=message)
+
 async def hello(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     chat_id = update.effective_chat["id"]
 
@@ -93,7 +94,7 @@ async def value_input(update: Update, context: ContextTypes.DEFAULT_TYPE) -> Non
     context.user_data[0] = update.message.photo
     context.user_data[1] = update.message.caption_html
     caption = update.message.caption
-    await update.message.reply_text(f'Value Input : {update.message.} {caption}') 
+    await update.message.reply_text(f'Value Input : {update.message.text_html} {caption}') 
 async def setCaption(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_text(f'setCaption') 
 async def send_Ads(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
